@@ -1,0 +1,425 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "petitions-31032021.appspot.com"
+    },
+    "host": "petitions-31032021.appspot.com",
+    "basePath": "/_ah/api",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/petitions/create/fake": {
+            "get": {
+                "operationId": "createFakePetitions",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/EntityCollection"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/petitions/top100": {
+            "get": {
+                "operationId": "topPetitions",
+                "parameters": [
+                    {
+                        "name": "next",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/EntityCollection"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/petitions/filter": {
+            "get": {
+                "operationId": "filterPetitions",
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "next",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/CollectionResponse_Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/petition/{id}": {
+            "get": {
+                "operationId": "getSinglePetition",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            },
+            "put": {
+                "operationId": "signPetition",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/petitions": {
+            "post": {
+                "operationId": "create",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/Petition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/me/signature": {
+            "get": {
+                "operationId": "getSignedPetition",
+                "parameters": [
+                    {
+                        "name": "next",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/CollectionResponse_Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/me/petitions": {
+            "get": {
+                "operationId": "getCreatedPetition",
+                "parameters": [
+                    {
+                        "name": "next",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful response",
+                        "schema": {
+                            "$ref": "#/definitions/CollectionResponse_Entity"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        },
+        "/endpoints": {
+            "get": {
+                "operationId": "getendpoints",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "List of API endpoints",
+                        "schema": {
+                            "$ref": "#/definitions/EndpointList"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "google_id_token-8d532454": []
+                    },
+                    {
+                        "google_id_token_https-8d532454": []
+                    }
+                ]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "google_id_token_https-8d532454": {
+            "type": "oauth2",
+            "authorizationUrl": "",
+            "flow": "implicit",
+            "x-google-issuer": "https://accounts.google.com",
+            "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs",
+            "x-google-audiences": "783652474514-4phtn5ltamif6n2ts1n918uql52hs6b4.apps.googleusercontent.com"
+        },
+        "google_id_token-8d532454": {
+            "type": "oauth2",
+            "authorizationUrl": "",
+            "flow": "implicit",
+            "x-google-issuer": "accounts.google.com",
+            "x-google-jwks_uri": "https://www.googleapis.com/oauth2/v1/certs",
+            "x-google-audiences": "783652474514-4phtn5ltamif6n2ts1n918uql52hs6b4.apps.googleusercontent.com"
+        }
+    },
+    "definitions": {
+        "_any": {
+            "type": "object"
+        },
+        "Entity": {
+            "type": "object",
+            "properties": {
+                "appId": {
+                    "type": "string"
+                },
+                "key": {
+                    "$ref": "#/definitions/Key"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "parent": {
+                    "$ref": "#/definitions/Key"
+                },
+                "properties": {
+                    "$ref": "#/definitions/Map_String_Object"
+                },
+                "propertiesFrom": {
+                    "$ref": "#/definitions/Entity"
+                }
+            }
+        },
+        "Endpoint": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "authRequired": {
+                    "type": "string"
+                }
+            }
+        },
+        "CollectionResponse_Entity": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Entity"
+                    }
+                },
+                "nextPageToken": {
+                    "type": "string"
+                }
+            }
+        },
+        "EntityCollection": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Entity"
+                    }
+                }
+            }
+        },
+        "EndpointList": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Endpoint"
+                    }
+                }
+            }
+        },
+        "Map_String_Object": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/definitions/_any"
+            }
+        },
+        "Key": {
+            "type": "object",
+            "properties": {
+                "appId": {
+                    "type": "string"
+                },
+                "complete": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "parent": {
+                    "$ref": "#/definitions/Key"
+                }
+            }
+        },
+        "Petition": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

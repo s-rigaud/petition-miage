@@ -1,0 +1,25 @@
+indexes:
+
+# For the more signed petition query
+#  Query : select * from Petition order by signCount desc, created_at desc 
+    
+- kind: Petition
+  properties: 
+    - name: signCount
+      direction: desc
+
+    - name: created_at 
+      direction: desc
+
+# For the filtering part using name or tags
+# Query : select * from Petition where tags = "patate"
+# Query : select * from Petition where tags = "patate" and tag = "artichaut"
+# Query : select * from Petition where tags = "patate" and tag = "artichaut" and title >= "Pomme" and title < "Pommf"
+- kind: Petition 
+  properties: 
+ 
+    - name: tags
+      direction: asc
+
+    - name: name 
+      direction: desc
